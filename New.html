@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fdf6e4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .birthday-banner {
+            background-color: #f7c5cc;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: inline-block;
+            width: 80%;
+        }
+        .birthday-banner h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .message {
+            margin: 20px auto;
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+        .cake {
+            margin-top: 20px;
+        }
+        .cake img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button-container {
+            margin: 20px auto;
+        }
+        .button {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+        .button:hover {
+            background-color: #e65a50;
+        }
+        .form-container {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e65a50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="birthdayPage">
+        <div class="birthday-banner">
+            <h1>Happy Birthday, [Friend's Name]!</h1>
+        </div>
+        <div class="message">
+            <p>Wishing you a day filled with love, laughter, and all your favorite things! You deserve the best on your special day and every day.</p>
+        </div>
+        <div class="cake">
+            <img src="https://via.placeholder.com/200" alt="Birthday Cake">
+        </div>
+        <div class="button-container">
+            <button class="button" onclick="showEnquiryForm()">Enquiry Form</button>
+        </div>
+    </div>
+
+    <div class="form-container" id="enquiryForm">
+        <h1>Enquiry Form</h1>
+        <form onsubmit="submitForm(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="question1">1. What is your favorite birthday memory?</label>
+            <textarea id="question1" name="question1" rows="4" placeholder="Enter your answer here" required></textarea>
+
+            <label for="question2">2. What is one thing you wish for this year?</label>
+            <textarea id="question2" name="question2" rows="4" placeholder="Enter your answer here" required></textarea>
+
+            <label for="question3">3. Any special message you'd like to share?</label>
+            <textarea id="question3" name="question3" rows="4" placeholder="Enter your answer here" required></textarea>
+
+            <button type="submit">Submit</button>
+            <button type="button" onclick="showBirthdayPage()">Back to Birthday Page</button>
+        </form>
+    </div>
+
+    <script>
+        function showEnquiryForm() {
+            document.getElementById("birthdayPage").style.display = "none";
+            document.getElementById("enquiryForm").style.display = "block";
+        }
+
+        function showBirthdayPage() {
+            document.getElementById("enquiryForm").style.display = "none";
+            document.getElementById("birthdayPage").style.display = "block";
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert("Thank you for submitting the enquiry form!");
+            document.getElementById("enquiryForm").reset();
+            showBirthdayPage();
+        }
+    </script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("service_jmwibui"); // Replace YOUR_USER_ID with your EmailJS User ID
+    })();
+</script>
+
+</body>
+</html>
